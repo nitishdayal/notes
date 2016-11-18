@@ -26,7 +26,7 @@ Topics Covered:
 
 ----------
 ## 1.1. Understanding the JavaScript Language
-----------
+
 
 JS developers tend to stagnate in terms of growth after gaining a firm grasp on the 
   fundamentals. The authors guess  that these developers might come from another language
@@ -97,7 +97,7 @@ While the update between ES5 to ES6 was a tedious process for most browsers, upc
 
 ----------
 ## 1.2 Understanding the Browser
-----------
+
 
 The book's primary focus is on JavaScript development for the browser, but it does note that JS can now
 	be used to code in a multitude of environments. A browser consists of:
@@ -128,7 +128,7 @@ Excerpt From: John Resig, Bear Bibeault, Josip Maras.
 
 ----------
 ## 1.3. Using Current Best Practices
-----------
+
 
 Understanding the language and the browser make up the fundamentals of JS development.
   Moving past the fundamentals requires a knowledge of:
@@ -178,7 +178,7 @@ JS engines have gotten smarter and faster. That's not a reason to write sloppy, 
 
 ----------
 ## 1.4. Boosting Skill Transferability
-----------
+
 
 Websites aren't websites any more, they're web _apps_. Web apps are becoming progressive apps. 
   The browser is no longer just for the web. As the world of software development and web development
@@ -194,7 +194,7 @@ Websites aren't websites any more, they're web _apps_. Web apps are becoming pro
 
 ----------
 ## 1.5. Summary
-----------
+
 
 _ Take time to understand the layout of client-side web apps. The ideas and tools carry over to 
     an extensive collection of platforms.

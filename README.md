@@ -11,7 +11,7 @@ A collection of personal thoughts and notes on a variety of programming-related 
   
   - [ ] Part 1: Warming Up
   
-    - [ ] Chapter 1. JavaScript is Everywhere
+    - [x] Chapter 1. JavaScript is Everywhere
     - [ ] Chapter 2. Building the Page at Runtime
 
   - [ ] Part 2: Understanding Functions
