@@ -7,12 +7,12 @@ A collection of personal thoughts and notes on a variety of programming-related 
 
 
 ## Currently Working On:
-- [ ] **"Secrets of the JavaScript Ninja, Second Edition"**
+- [ ] "Secrets of the JavaScript Ninja, Second Edition"
   
-  - [x] Part 1: Warming Up
+  - [x] ~~Part 1: Warming Up~~
   
-    - [x] Chapter 1. JavaScript is Everywhere
-    - [x] Chapter 2. Building the Page at Runtime
+    - [x] ~~Chapter 1. JavaScript is Everywhere~~
+    - [x] ~~Chapter 2. Building the Page at Runtime~~
 
   - [ ] Part 2: Understanding Functions
   
