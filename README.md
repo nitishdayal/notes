@@ -9,10 +9,10 @@ A collection of personal thoughts and notes on a variety of programming-related 
 ## Currently Working On:
 - [ ] **"Secrets of the JavaScript Ninja, Second Edition"**
   
-  - [ ] Part 1: Warming Up
+  - [x] Part 1: Warming Up
   
     - [x] Chapter 1. JavaScript is Everywhere
-    - [ ] Chapter 2. Building the Page at Runtime
+    - [x] Chapter 2. Building the Page at Runtime
 
   - [ ] Part 2: Understanding Functions
   
