@@ -1,0 +1,102 @@
+# Chapter 2. Building the page at runtime
+
+Topics Covered:
+
+- Lifecycle of a web application
+- How HTML is processed to produce a web page
+- Order of JS code execution
+- Interaction through events
+- The event loop
+
+## Do You Know? (Pre-Chapter Knowledge Check)
+
+1. Does the browser always build the page exactly according to the given HTML?
+    - Browsers will build the page according to the provided HTML, but that HTML can
+      be altered by a variety of languages (JavaScript, CSS, etc.) or programs 
+      (the browser itself) either _after_ or _before_ the given HTML page is built.
+
+2. How many events can a web application handle at once?
+    - A JavaScript web application can handle one event at a time.
+3. Why must browsers use an event queue to process events?
+    - Browsers implement an _event queue_ to keep track of the order in which 
+      events have taken place.
+
+----------
+## 2.1. The Lifecycle Overview
+
+Typical Client-Side Web Application Lifecycle:
+  
+  1. User types a URL into the browser's address bar or clicks a hyperlink.
+  2. Browser creates a request on behalf of the user, and sends the request to 
+      a server.
+  3. Server processes request, generates a response (generally HTML/CSS/JS code), 
+      and sends the response back to the browser.
+  4. Browser receives response from the server, and generates a user interface 
+      as described by that response.
+  5. Browser listens for events.
+  6. Application invokes event handlers corresponding to occuring events.
+  7. Application ends when user navigates away from the web page.
+
+----------
+## 2.2. The Page-Building Phase
+
+Steps:
+
+  1. Parse HTML to build the Document Object Model:
+      - Performed when browser processes HTML nodes
+  2. Execute JavaScript code:
+      - Performed when browser encounters `script` tag
+
+The browser switches back and forth bewtween these steps as necessary.
+
+### 2.2.1. Parsing the HTML & Building the DOM
+
+  - The browser receives HTML code from the server and uses it as a base for creating 
+      the application's UI by parsing through the one HTML element at a time and 
+      building a structured representation of the HTML page (DOM), in which every
+      HTML element is represented as a node. 
+  - Each HTML node can have only **ONE** parent, **MULTIPLE** children, and **MULTIPLE**
+      siblings (nodes that share the same parent node).
+
+[HTML5 Guide by Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)  
+[DOM API Guide by Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+
+
+> **NOTE:** Though HTML and the DOM are closely linked (DOM is initially constructed from HTML),
+>  the two aren't synonymous. HTML code can be thought of as the _blueprint_ which the browser
+>  follows when contructing the initial layout of the application UI (DOM). Blueprints can be 
+>  modified as necessary. :)
+
+  If the browser encounters a `script` element while parsing through the HTML elements, it 
+    pauses DOM creation and begins executing the JavaScript code.
+
+### 2.2.2. Executing JavaScript Code
+
+JavaScript code is executed by the browser's JavaScript engine:
+
+  - Firefox (SpiderMonkey)
+  - Chrome (V8)
+  - Opera (V8)
+  - Edge (Chakra)
+  - Safari (Nitro)
+
+Primary differentiatior being compilation methods and speed. Browsers also provide an
+API through a globally accesible object which the JavaScript engine uses to interact 
+with and modify the page.
+
+`window` Object in JavaScript:
+
+  - The `window` object is the window in which an app is contained. All other globally
+      available objects, variables (including user-defined variables), and browser APIs are
+      available _through_ the `window` object. JavaScript uses this object to alter the DOM
+      by changing/adding/removing DOM elements.
+
+[Web API Guide by Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/API)
+
+JavaScript code can be broadly differentiated into two types: _global_ or _function code_. _Global
+  code_ is executed automatically by a browser's JavaScript engine and is interpreted in a linear, 
+  line-by-line manner. _Function code_ isn't executed until it's **called upon**; defining
+  a function doesn't invoke it (in most cases), so to run the process defined in the function the
+  program (or the JavaScript engine, or the browser) has to be told to call it by specifying
+  the function name, followed with matching parenthesis that contain user-provided arguments
+  or arguments that are required by the function.

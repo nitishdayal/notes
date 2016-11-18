@@ -196,7 +196,7 @@ Websites aren't websites any more, they're web _apps_. Web apps are becoming pro
 ## 1.5. Summary
 
 
-_ Take time to understand the layout of client-side web apps. The ideas and tools carry over to 
+- Take time to understand the layout of client-side web apps. The ideas and tools carry over to 
     an extensive collection of platforms.
 - Deep-dive into the core mechanics of JS (browser APIs, events, timers, DOM) as well as 
     browser-provided Infrastructure.

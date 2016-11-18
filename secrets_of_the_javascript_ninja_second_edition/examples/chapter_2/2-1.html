@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Web Application Lifecycle</title>
+
+  <!-- Apply color property to elements matching id "first" or "second" -->
+  <style>
+    #first {
+      color: green;
+    }
+    
+    #second {
+      color: red;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <ul id="first"></ul>
+
+  <script>
+
+    // Defines a function that adds a message to an element
+    function addMessage(element, message) {
+
+      var messageElement = document.createElement("li")      
+      messageElement.textContent = message
+      element.appendChild(messageElement)
+
+    };
+
+    var first = document.getElementById("first")
+    addMessage(first, "Page loading")
+
+  </script>
+
+  <ul id="second"></ul>
+
+  <script>
+
+    // Attach 'mousemove'event handler to document body
+    document.body.addEventListener("mousemove", function() {
+      var second = document.getElementById("second")
+      addMessage(second, "Event: mousemove")
+    });
+
+    // Attach 'click' event handler to document body
+    document.body.addEventListener("click", function() {
+      var second = document.getElementById("second")
+      addMessage(second, "Event: click")
+    });
+
+  </script>
+
+</body>
+
+</html>
