@@ -1,7 +1,7 @@
 # Notes
 
 Nitish Dayal, Software & Applications Developer - [Contact](http://www.nitishdayal.me)  
-Last Commit Date: Nov 16, 2016
+Last Commit Date: Nov 19, 2016
 
 A collection of personal thoughts and notes on a variety of programming-related topics.
 
@@ -14,9 +14,9 @@ A collection of personal thoughts and notes on a variety of programming-related 
     - [x] ~~Chapter 1. JavaScript is Everywhere~~
     - [x] ~~Chapter 2. Building the Page at Runtime~~
 
-  - [ ] Part 2: Understanding Functions
-  
-    - [ ] Chapter 3. Understanding Functions
+  - [ ] Part 2: Understanding Functions **IN PROGRESS**
+
+    - [ ] Chapter 3. Understanding Functions **IN PROGRESS**
     - [ ] Chapter 4. Functions for the Journeyman: Understanding Function Invocation
     - [ ] Chapter 5. Functions for the Master: Closures and Scopes
     - [ ] Chapter 6. Functions for the Future: Generators and Promises
