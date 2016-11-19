@@ -21,7 +21,7 @@ Personally, I really enjoy working in a JavaScript development environment. The 
 
 _"Secrets of the JavaScript Ninja, Second Edition"_ is broken up into four parts:
 
-  - [x] Part 1: An introduction to JavaScript and the path this book takes to aide the
+  - [x] ~~Part 1~~: An introduction to JavaScript and the path this book takes to aide the
       reader gain a firmer grasp on JavaScript application development.
 
   - [ ] Part 2 **(IN PROGRESS)**: A deep dive the importance of JavaScript functions, with a special
