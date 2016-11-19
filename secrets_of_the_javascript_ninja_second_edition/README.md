@@ -35,4 +35,4 @@ _"Secrets of the JavaScript Ninja, Second Edition"_ is broken up into four parts
 
 ## Goal:
 
-Complete book, gain confidence, become a JS ninja will ~all the secrets~.
+Complete book, gain confidence, become a JS ninja with ~all the secrets~.
