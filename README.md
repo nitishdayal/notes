@@ -1,7 +1,7 @@
 # Notes
 
 Nitish Dayal, Software & Applications Developer - [Contact](http://www.nitishdayal.me)  
-Last Commit Date: Nov 19, 2016
+Last Commit Date: Nov 24, 2016
 
 A collection of personal thoughts and notes on a variety of programming-related topics.
 

@@ -3,7 +3,7 @@
 Topics Covered:
 
 - Importance of understanding JavaScript functions
-- What it means for a function to be a 'first-class citizen'.
+- What it means for a function to be a 'first-class citizen'
 - Define a function
 - Secrets of assigning parameters
 
