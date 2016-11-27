@@ -16,10 +16,19 @@ To make Angular 2 services, we create a new file with the extension '.service.ts
 
 Example:
 ```typescript
+// hero.service.ts
 import { Injectable } from '@angular/core';
 
+import { Hero } from './hero';
+import { HEREOS } from './mock-heroes';
+
+
 @Injectable()
-export class HeroService { }
+export class HeroService {
+  getHeroes(): Promise<Hero[]> {
+    return Promise.resolve(HEROES);
+  }
+ }
 ```
 
 # !! **IMPORTANT** !!
@@ -31,3 +40,61 @@ export class HeroService { }
   all sorts of not-fun things no one wants to deal with. So. Don't do it. There's no point.
   It doesn't provide any additional benefit to the development process.
 
+----------
+
+If any part of our application utilizes data from a service, it is known as a _consumer_. A
+  consumer is completely unaware of how the service gets data; the location of the data
+  is irrelevant. This presents a massive benefit to the development process as the data 
+  source can be altered at any point without having to alter the components that utilize
+  the data _in any way_.
+
+In order for a component to consume data from a service, that service needs to be _injected_
+  into the component's **constructor** method. Every class has a constructor method, whether
+  the user defines it or not. We can _override_ it and provide the service as an argument,
+  so that whenever the component is constructed the service will be made available as well.
+
+Example:
+```TypeScript
+// app.component.ts
+import { Component, OnInit } from '@angular/core';
+
+import { Hero } from './hero';
+import { HeroService } from './hero.service';
+
+
+@Component({
+  selector: 'my-app',
+  template: `
+    <h1>{{title}}</h1>
+    <h2>My Heroes</h2>
+    <ul class="heroes">
+      <li *ngFor="let hero of heroes"
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </li>
+    </ul>
+    <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+  `
+})
+export class AppComponent implements OnInit {
+  title = 'Tour of Heroes';
+  heroes: Hero[];
+  selectedHero: Hero;
+
+  constructor(private heroService: HeroService) { }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .then(heroes => this.heroes = heroes);
+  }
+
+  ngOnInit(): void {
+    this.getHeroes()
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+}
+```
