@@ -111,5 +111,5 @@ The Angular 2 RouterModule is vast and very, very capable. To develop a thorough
   my summary (aka this file) is _even more limited_. The above information will
   most likely generate more questions than answers, but that is intentiona. Once
   again, **the router is too large to cover in a tutorial**. We've covered
-  the essentials of setting up routing.
-
+  the essentials of setting up routing; import the module, define some routes,
+  provide a router outlet.
