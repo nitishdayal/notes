@@ -11,7 +11,7 @@ Topics Covered:
 
 1. In what situations might callback functions be used synchronously? Asynchronously?
 
-    - Callback functions can be used synchronously to increment the value of a given value. 
+    - Callback functions can be used synchronously to increment the value of a given variable. 
       A situation in which callback functions could be used asynchronously would be
       to hold on to a given value until it's called either by the _user_, the _program_,
       or the _browser_.
@@ -26,7 +26,7 @@ Topics Covered:
     - Default parameter values would be needed in a function if the function requires
       a given parameter to perform, but that parameter isn't always provided by the user
       or the program.
-      
+
 ----------
 ## 3.1. What's With the Functional Difference?
 
