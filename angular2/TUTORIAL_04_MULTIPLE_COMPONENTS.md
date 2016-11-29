@@ -102,8 +102,9 @@ export class AppComponent {
   }
 }
 
-// app.module.ts
 
+
+// app.module.ts
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';   // Import forms module for the @Input property

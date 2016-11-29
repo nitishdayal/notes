@@ -73,7 +73,7 @@ const HEROES: Hero[] = [                    // Create mock data set
 
       The (click) property is an example of how Angular 2 handles event binding. 
       In this example, we want to listen for a click on one of the list items, and 
-      then call the `onSelect()` method, passing in the contents of the list item 
+      then call the 'onSelect()' method, passing in the contents of the list item 
       as an argument (hero).
       -->
       <li *ngFor="let hero of heroes"
