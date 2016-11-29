@@ -1,7 +1,7 @@
 # Angular 2
 
 Nitish Dayal, Software & Applications Developer - [Contact](http://www.nitishdayal.me)  
-Last Commit Date: Nov 26, 2016
+Last Commit Date: Nov 29, 2016
 
 ## About
 
