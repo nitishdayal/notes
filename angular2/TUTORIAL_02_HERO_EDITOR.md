@@ -65,13 +65,13 @@ Display data by inserting one of the property names in between double curly brac
 
 If we try to use the double curly brackets as a way to receive data back from the user,
   it won't work. Interpolation provides _one way_ data binding, meaning that the data will always
-  reflect what is on server-side/whatever information the application already has. In order to
+  reflect server-side/whatever information the application already has. In order to
   receive user inputs as well, we need to set up _two way_ data binding.
 
 In order to take advantage of two-way data binding, we need to **import the `FormsModule` 
   into our application**. This is done at the app module level; by importing the `FormsModule` at
-  the apps module level and providing it as an argument to the 'imports' property of 
-  `@NgModule`, it is made avaiable to the rest of the application bootstrapped 
+  the apps module level and providing it to the 'imports' property of 
+  `@NgModule`, it becomes available to the rest of the application bootstrapped 
   from this particular module.
 
 Before & After HTML Template:
