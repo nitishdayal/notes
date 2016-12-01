@@ -41,7 +41,7 @@ A collection of personal thoughts and notes on a variety of programming-related 
 
 ----------
 
-- [ ] Angular 2 Documentation
+- [ ] "[Angular 2 Documentation](https://angular.io/docs/ts/latest/)"
 
   - [x] ~~Tutorial~~
 
