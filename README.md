@@ -38,7 +38,9 @@ A collection of personal thoughts and notes on a variety of programming-related 
   - [ ] Appendix A. Additional ES6 Features
   - [ ] Appendix B. Arming With Testing & Debugging
   - [ ] Appendix C. Exercise Answers
-___
+
+----------
+
 - [ ] Angular 2 Documentation
 
   - [x] ~~Tutorial~~
