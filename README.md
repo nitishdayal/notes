@@ -61,7 +61,5 @@ A collection of personal thoughts and notes on a variety of programming-related 
     - [ ] Style Guide
 
   - [ ] Advanced
-
   - [ ] Cookbook
-
   - [ ] API
