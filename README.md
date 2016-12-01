@@ -1,7 +1,7 @@
 # Notes
 
 Nitish Dayal, Software & Applications Developer - [Contact](http://www.nitishdayal.me)  
-Last Commit Date: Nov 29, 2016
+Last Commit Date: Nov 30, 2016
 
 A collection of personal thoughts and notes on a variety of programming-related topics.
 
@@ -38,11 +38,28 @@ A collection of personal thoughts and notes on a variety of programming-related 
   - [ ] Appendix A. Additional ES6 Features
   - [ ] Appendix B. Arming With Testing & Debugging
   - [ ] Appendix C. Exercise Answers
-
+___
 - [ ] Angular 2 Documentation
 
   - [x] ~~Tutorial~~
-  - [ ] Guide
+
+  - [ ] Guide **IN PROGRESS**
+
+    - [x] ~~Overview (No notes taken)~~
+    - [x] ~~Setup~~
+    - [ ] Learning Angular **IN PROGRESS**
+    - [ ] Architecture
+    - [ ] The Root Module
+    - [ ] Displaying Data
+    - [ ] User Input
+    - [ ] Forms
+    - [ ] Dependency Injection
+    - [ ] Template Syntax
+    - [ ] Angular Cheat Sheet
+    - [ ] Style Guide
+
   - [ ] Advanced
+
   - [ ] Cookbook
+
   - [ ] API
