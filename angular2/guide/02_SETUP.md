@@ -10,7 +10,7 @@ Angular 2 provides a [Live-Coding Example](http://plnkr.co/edit/?p=preview&open=
 
 
 
-## Prerequisites:
+## Prerequisites
 
 - Install Node - [Link](https://nodejs.org/en/)
 - Confirm Node & NPM install:
@@ -62,7 +62,8 @@ Feel free to delete the files marked with an asterisk; if you don't intend on le
   **Leave comments on the top of each file to remind yourself what it's there for** so you can
   come back to it when you're ready. They're there for a reason.
 
-But, once again, if your goal is to understand the core concepts of Angular 2, they are 
+But, once again, if your goal is to learn the core concepts of Angular 2, they are 
   not necessary. All you really need is the `app/` directory sans the spec.ts file, 
-  `index.html`, `node_modules` (which will appear after running npm install), `package.json`,
-  and the configuratin files for SystemJS, the TypeScript compiler, and TSLint.
+  `index.html`, `node_modules/` directory (which will appear after running npm install), `package.json`,
+  and the configuration files for SystemJS, the TypeScript compiler, and TSLint.
+
