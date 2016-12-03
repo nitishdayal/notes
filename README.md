@@ -16,7 +16,7 @@ A collection of personal thoughts and notes on a variety of programming-related 
 
   - [ ] Part 2: Understanding Functions **IN PROGRESS**
 
-    - [ ] Chapter 3. Understanding Functions **IN PROGRESS**
+    - [x] ~~Chapter 3. Understanding Functions~~
     - [ ] Chapter 4. Functions for the Journeyman: Understanding Function Invocation
     - [ ] Chapter 5. Functions for the Master: Closures and Scopes
     - [ ] Chapter 6. Functions for the Future: Generators and Promises

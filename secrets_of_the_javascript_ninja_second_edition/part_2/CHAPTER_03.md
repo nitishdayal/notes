@@ -437,15 +437,130 @@ withADefaultParameter("Leo", "Woof")
 **Any value can be a assigned as a default parameter**; primitive data types like numbers
   or strings, complex types like objects, arrays, or functions, etc. The values are
   evaluated from left to right; as such, any parameter that is preceded by any other parameter
-  can take advantage of that parameter's assigned value. Weird and wordy I know. But it's true
-  Read it until it starts making sense. I swear it's real.
+  can take advantage of that parameter's assigned value. Weird and wordy I know. But it's true.
+  Read it until it starts making sense. I swear it's real. **HOWEVER**, this technique isn't
+  particularly recommended. It takes away from code readability and doesn't really provide
+  any benefit; maybe three or four words less that you have to type. Not worth.
 
 ----------
 
 ## 3.5. Summary
 
-
+- JavaScript should be learned as a _functional language_ if one wishes to be able to write
+  sophisticated code.
+- In JavaScript, _functions are first-class citizens/objects_. Top dog of JS world.
+  All hail our functional overlords.
+- Callback functions (functions that other code _calls back_ at a later time) are
+  frequently utilized in JavaScript development, particularly for event-handling.
+- Since functions are first-class objects, they can contain properties and attributes
+  just like any other object. This opens up another layer of functionality:
+    - Store child functions within a parent function for future reference/invocation
+    - Create a cache (memoization) to avoid repetitive or unnecessary computations.
+- The different types of functions are: **function declarations, function expressions,
+  arrow functions, and function generators.
+- Function declarations _must be named and be placed as separate statements_. Function
+  expressions don't require a name, but _must be a part of another code statement_.
+- Arrow functions are prettier, cleaner, nicer, and there's no reason not to use them. Use them.
+- **Parameters** are variables listed in a _function definition_, while **arguments** are values
+  passed to _function invocation_.
+- The amount of parameters and arguments provided for a given function do not need to match:
+  - If there are more parameters than arguments, the additional parameters are given the value
+    `undefined`.
+  - If there are more arguments than parameters, the extra arguments aren't bound to the
+    parameter names.
+- **Rest parameters** and **default parameters** were introduced with ECMAScript 2015 (ES6):
+  - Rest parameters give us a way to handle extra arguments; they are placed in a new array
+    and can be referenced by the name given to the rest parameter.
+  - Default parameters give us a way to specify a value for a parameter in the _function definition_
+    which will change very rarely; to override the default value, we simply provide our own in the
+    _function invocation_.
 
 ----------
 
 ## 3.6. Exercises
+
+1. In the following code snippet, which functions are callback functions?
+    ```JavaScript
+    numbers.sort(function sortAsc(a,b){
+      return a - b;
+    })
+
+    function ninja(){}
+    ninja();
+
+    var myButton = document.getElementById("myButton");
+    myButton.addEventListener("click", function handleClick(){
+      alert("Clicked");
+    })
+    ```
+
+    Answer: sortAsc() and handleClick() are callback functions as they are being utilized
+      by another piece of code and are called upon as needed. ninja() is not a callback;
+      it is directly invoked at one specific instance and we know that it will not be called
+      again.
+
+2. In the following snippet, categorize functions according to their type (function declaration,
+  function expression, or arrow function).
+
+  ```JavaScript
+
+  // sortAsc() is a function expression
+  numbers.sort(function sortAsc(a,b){
+    return a - b;
+  });
+
+  // Arrow function
+  numbers.sort((a,b) => b - a)
+
+  // Function expression (immediately invoked function expression)
+  (function(){})();
+
+  // Function declaration
+  function outer(){
+    // Function declaration
+    function inner(){}
+    return inner;
+  }
+
+  // Function expression
+  (function(){}());
+
+  // Arrow function expression (immediately invoked)
+  (() =>  "Yoshi")();
+  ```
+
+3. After executing the following code snippet, what are the values of variables
+  `samurai` and `ninja`?
+
+  ```JavaScript
+  // var samurai has a string value "Tomoe"
+  var samurai = (() => "Tomoe")();
+
+
+  // var ninja is undefined; the arrow function is invoked immediately and does not provide
+  // a return value, as such, once the program has completed, the value of ninja will be
+  // `undefined`.
+  var ninja = (() => {"Yoshi"})();
+  ```
+
+4. Within the body of the `test` function, what are the values of parameters `a`, `b`, and `c`
+  for the two function calls?
+
+  ```JavaScript
+  function test (a, b, ....c) { /*a, b, c*/}
+
+  test(1,2,3,4,5); // A = 1, B = 2, C = [3,4,5]
+  test();          // A, B = undefined, C = [];
+  ```  
+
+5. After executing the following code snippet, what are the values of the `message1` and `message2`
+  variables?
+
+  ```JavaScript
+  function getNinjaWieldingWeapon(ninja, weapon = "katana"){
+    return ninja + " " + weapon;
+  }
+
+  var message1 = getNinjaWieldingWeapon("Yoshi");               // "Yoshi katana"
+  var message2 = getNinjaWieldingWeapon("Yoshi", "wakizashi");  // "Yoshi wakizashi"
+  ```
