@@ -24,7 +24,7 @@ Angular 2 provides a [Live-Coding Example](http://plnkr.co/edit/?p=preview&open=
 
 1. Create a folder for your project and navigate to it in your terminal.
 2. From command line: `git clone https://github.com/angular/quickstart.git`
-3. From command line: `rm-rf .git` (non-Windows) `rd .git /S/Q` (windows)  - Remove existing
+3. From command line: `rm -rf .git` (non-Windows) `rd .git /S/Q` (windows)  - Remove existing
     Git repo information.
 4. From command line: `npm install` - Installs all packages listed in the package.json from QuickStart
 5. From command line: `npm start` - Starts the dev server and launch application (**KEEP THIS RUNNING**)

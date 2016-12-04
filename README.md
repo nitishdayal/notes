@@ -49,8 +49,8 @@ A collection of personal thoughts and notes on a variety of programming-related 
 
     - [x] ~~Overview (No notes taken)~~
     - [x] ~~Setup~~
-    - [ ] Learning Angular **IN PROGRESS**
-    - [ ] Architecture
+    - [x] ~~Learning Angular~~
+    - [x] ~~Architecture~~
     - [ ] The Root Module
     - [ ] Displaying Data
     - [ ] User Input
