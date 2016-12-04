@@ -86,6 +86,7 @@ So in this example, we have a module which has declared it's AppComponent. Assum
 
 Example:
 ```TypeScript
+// app/app.main.ts
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
 
