@@ -31,7 +31,7 @@ Angular 2 provides a [Live-Coding Example](http://plnkr.co/edit/?p=preview&open=
 
 The QuickStart tree structure is as follows:
 (An asterisk (*) implies the file/folder is not necessary)
-```bash
+```shell
 └── quickstart                                         # Root Project Directory
     ├── CHANGELOG.md*                                  # Angular 2 QuickStart Change log
     ├── LICENSE                                        # MIT License Information
