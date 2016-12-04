@@ -11,7 +11,7 @@ Notes & personal thoughts as I work through the Angular 2 documentation are stor
 The [tutorial folder](./tutorial_tour_of_heroes/) contains the source code for the 
   [Tour of Heroes](https://angular.io/docs/ts/latest/tutorial/) tutorial from 
   the official Angular 2 documentation, but all notes from the tutorial will be 
-  stored here. Tutorial is up to date as of Angular 2.2.1 (2016-11-17)
+  stored here. As of 12/03/2016, the tutorial section is up to date.
 
 The [guide folder](./guide/) contains notes about the
   [Official Angular 2 Guide](https://angular.io/docs/ts/latest/guide/) and is
