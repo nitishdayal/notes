@@ -25,7 +25,7 @@ _"Secrets of the JavaScript Ninja, Second Edition"_ is broken up into four parts
       reader gain a firmer grasp on JavaScript application development.
 
   - [ ] Part 2 **(IN PROGRESS)**: A deep dive the importance of JavaScript functions, with a special
-      focus on type of function new to JavaScript (generator functions) that aide
+      focus on a type of function new to JavaScript (generator functions) that aide
       in dealing with asynchronous code.
 
   - [ ] Part 3: A deep dive into JavaScript objects: their orientation in JS, guarding
@@ -35,4 +35,4 @@ _"Secrets of the JavaScript Ninja, Second Edition"_ is broken up into four parts
 
 ## Goal:
 
-Complete book, gain confidence, become a JS ninja with ~all the secrets~.
+Complete book, gain confidence, become a JS ninja with _~all the secrets~_.
