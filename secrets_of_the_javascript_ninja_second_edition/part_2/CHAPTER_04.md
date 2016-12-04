@@ -17,12 +17,12 @@ Topics Covered:
 
 2. What's the difference between a function and a method?
 
-    - A function is a stand-alone object, where as a method is a function which
+    - A function is a stand-alone object, whereas a method is a function which
       is _a property of an object_.
 
 3. What would happen if a constructor function explicitly returned an object?
 
-    - 
+    - The object would no longer maintain reference to the constructor function.
 
 ----------
 
@@ -115,5 +115,89 @@ JavaScript _function context_ varies from **object-oriented** langauges such as 
 ----------
 
 ## 4.2. Invoking Functions
+
+This section goes into detail about **what happens when a function is called**. There
+  are multiple ways to invoke a function, and the way a function is invoked impacts
+  how the code _within the function_ operates, and how the `this` parameter (function
+  context) is established.
+
+There are four ways to invoke functions:
+
+- _As a function_ - `skulk()`; invoked in a straightforward manner
+- _As a method_ - `ninja.skulk()`; invocation tied to object, enabling OOP
+- _As a constructor_ - `new Ninja()`; a **new object** is instantiated
+- _Via the function's_ `apply` _or_ `call` _methods_ - `skulk.call(ninja)`
+
+Excluding the `call` and `apply` variations, the _function invocation **operator**_
+  is a set of parenthesis following **any expression** that evaluates to a _function 
+  reference_.
+
+### 4.2.1. Invocation As A Function
+
+While it might seem trivial to specify that a function is invoked as a...uh...function,
+  we clarify because it _distinguishes the invocation from other invocation
+  mechanisms: methods, constructors, and `apply` / `call`. If a function isn't
+  invoked as a method, constructor, or via `apply` or `call`, it's _invoked
+  as a function_.
+
+**Function invocation** occurs when a function is called using the `()` operator
+  and the expression on which the `()` operator is applied _does not reference
+  the function as a property of an object_.
+
+The _context_ (`this` parameter) of a function _invoked as a function_ can be one
+  of two things: in strict mode it will be `undefined`, whereas in nonstrict
+  mode the context of the function would be considerd the _global context (window
+  object)_.
+
+### 4.2.2. Invocations As A Method
+
+A function is considered to be _invoked as a method_ if the function is assigned
+  to an **object property**, and is invoked by referencing the function **using that
+  property**. The function is being _invoked as a method_ of that object.
+
+For the rest of this section we will reference the following code example:
+```JavaScript
+/***
+ * Returns the function context
+ * that will allow us to examine
+ * the context from outside 
+ ***/
+
+function whatsMyContext() {
+  return this;
+}
+
+var getMyThis = whatsMyContext; // Variable references whatsMyContext function
+
+var ninja1 = {                  // Object with a property which references whatsMyContext function
+  getMyThis: whatsMyContext;    
+};
+
+var ninja2 = {                  // Object with a property which references whatsMyContext function
+  getMyThis: whatsMyContext;    
+};
+```
+
+The `whatsMyContext()` function simply returns its _function context_. If it is 
+  _invoked as a function_, the _function context_ would be global (`window` object)
+  unless we are in strict mode, in which case it would be `undefined`. The variable
+  `getMyThis` is a _reference_ to the function, **not** a second instance of
+  the function. If we follow the `getMyThis` variable with _function invocation
+  operators_ `()`, we are once again invoking the function _as a function_ and
+  will get the same _function context_ as earlier; the function is not being
+  invoked from an _object property reference_, it is not _constructing_ a 
+  new function, and we did not utilize `apply` or `call` to invoke the function.
+
+`ninja1` is variable that has been assigned an _object_ with a _property_, `getMyThis`,
+  _which references the_ `whatsMyContext` _function_. To call this function, we invoke
+  the function using a _method reference_ (`ninja1.getMyThis()`) which makes the _function
+  context_ the `ninja1` object.
+
+`ninja2` is an exact copy of `ninja1` aside from the variable name. This was done to
+  illustrate that the `whatsMyContext()` function can be referenced by as many
+  objects and variables as we need, but the _function context_ always relates directly
+  to the object on which the function is invoked on.
+
+### 4.2.3. Invocation As A Constructor
 
 
