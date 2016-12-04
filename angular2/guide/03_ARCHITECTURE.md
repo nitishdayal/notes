@@ -1,17 +1,23 @@
 # Angular 2: Guide
 
-## Application Architecture
+## Architecture Overview
 
-**Table Of Contents:**
-- High-Level Overview
-- Modules
-- Components
-- Templates
-- Metadata
-- Data binding
-- Directives
-- Services
-- Dependency Injection
+Angular 2 applications consist of many moving pieces and bits. Approaching this without
+  guidelines can be overwhelming and messy; thankfully, we have the Angular 2 documentation
+  to explain how these pieces intertwine and work together to create a fully-fledged
+  application.
+
+## Table Of Contents 
+
+- [High-Level Overview](#high-level-overview)
+- [Modules](#modules)
+- [Components](#components)
+- [Templates](#templates)
+- [Metadata](#metadata)
+- [Data binding](#data-binding)
+- [Directives](#directives)
+- [Services](#services)
+- [Dependency Injection](#dependency-injection)
 
 ### High-Level Overview
 
