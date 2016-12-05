@@ -41,10 +41,10 @@ In any function, the `arguments` parameter refers to _all arguments passed to th
   utilize the `arguments` parameter to implement _function overloading_ and _variadic 
   functions_.
 
-[**NOTE**: While there is little need to utilize the `arguments` parameter due to the
-  introduction of `rest` parameters in the latest JavaScript standard, it's important
-  to understand the functionality and uses of `arguments` as we're very likely to
-  come across it in legacy code.]
+> **NOTE**: While there is little need to utilize the `arguments` parameter due to the
+>   introduction of `rest` parameters in the latest JavaScript standard, it's important
+>   to understand the functionality and uses of `arguments` as we're very likely to
+>   come across it in legacy code.
 
 `arguments` is an _object_ with a **length** property which indicates _the exact
   number of arguments_. To see the value of any given item in the `arguments` object,
