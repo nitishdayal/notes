@@ -22,7 +22,8 @@ Topics Covered:
 
 3. What would happen if a constructor function explicitly returned an object?
 
-    - The object would no longer maintain reference to the constructor function.
+    - The constructor's newly created object is discarded and the explicitly returned
+      object is the value of the `new` expression.
 
 ----------
 
@@ -92,7 +93,7 @@ In the example above, we call the `changeParam` function and pass in a string li
 
 We can limit this functionality by including the string `"use strict;"` at the very beginning of
   our JavaScript code. By doing so, we change the JavaScript engine's behavior to _throw errors_
-  rather silently picking them up and remove some 'unsafe' language features. One such feature 
+  rather silently picking them, up and remove some 'unsafe' language features. One such feature 
   is `arguments` aliasing.
 
 If we were to run the example again but include `"use strict";` at the beginning of our
@@ -199,5 +200,62 @@ The `whatsMyContext()` function simply returns its _function context_. If it is
   to the object on which the function is invoked on.
 
 ### 4.2.3. Invocation As A Constructor
+
+_Constructor functions_ are declared exactly like any other function; we can construct
+  new objects using _function declarations and function expressions_. The difference
+  lies in the process for _invoking the function_. To invoke a function as a 
+  _constructor_, we simply precede the function invocation with the `new` keyword.
+
+> **NOTE: DO NOT CONFUSE _FUNCTION CONSTRUCTORS_ WITH _CONSTRUCTOR FUNCTIONS_.** _Function
+> constructors_ allow us to create functions from _dynamically created strings_.
+> _Constructor functions_, the topic of this section, are functions used to create
+> and initialize object instances.
+
+A _constructor function_ creates an _empty object instance_ and passes it to the function
+  as its _function context_. The constructor then adds properties to the new object
+  as defined in the _function body_. Finally, the _newly constructed object_ is the
+  return value of the function invocation. **This is the primary purpose of a
+  constructor function**: create a new object, set it up, and return it as the
+  constructor value. Any interference with that process does not belong in a constructor.
+
+Technically, we can _new_ up an instance of any function regardless of the function
+  body. If the constructor function has a defined return value that is **not an object**,
+  the returned value is ignored and a newly created object is returned. If, however,
+  the constructor function **explicitly** returns an object, that object will be
+  the return value of the `new` expression. The newly created object passed as the
+  _function context_ is discarded.
+
+Since _constructor functions_ have these special conditions to take into consideration,
+  they are coded in a different manner than other functions.
+
+**Coding considerations for constructors**
+
+Constructors _initialize a new object_ that is created by the _function invocation_
+  with a set of specified _initial conditions_. Constructor functions follow a
+  naming convention to differentiate them from other functions or methods. While
+  standard functions/methods are named along the lines of the action they perform,
+  _constructor functions_ are generally named as a _noun describing the object
+  which the function will be creating_ and is capitalized. They allow us to write
+  more elegant code by providing the ability to create multiple objects that
+  conform to a similar pattern without having to repeat code.
+
+### 4.2.4. Invocation With `Call` and `Apply` Methods
+
+
+
+----------
+
+## 4.3. Fixing The Problems of Function Contexts
+
+
+### 4.3.1. Using Arrow Functions To Get Around Function Contexts
+
+### 4.3.2. Using The `bind` Method
+
+
+
+----------
+
+## 4.4. Summary
 
 
