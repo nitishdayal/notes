@@ -381,9 +381,133 @@ In the example above, we create an _object literal_, `var button = {...}`, to ma
 
 - **Arrow functions** don't have a `this` value of their own; they inherit the
   value of `this` from the object in which they are defined.
+
 - The `bind` method is a **built-in method** available to all functions in JavaScript,
   similar to `call` or `apply`, but the similarities end there. Where as `call`/`apply`
   simply provide an argument to be used as the _function context_ during one particular
   _function invocation_, the `bind` method _will create and return a new function with
   the exact same body as the original function_, but with the `this` property
   **permanently** set to an object provided as an argument.
+
+----------
+
+## 4.5. Exercises
+
+1. Write a function which calculates the sum of all passed-in arguments, regardless
+   of the number of arguments provided.
+
+  ```JavaScript
+  function sumRest(...values){
+    var sum = 0;
+    for (var i = 0; i < values.length; i++){
+      sum += values[i];
+    }
+    return sum;
+  }
+  ```
+
+2. After running the following code, what are the values of variables `ninja` and
+    `samurai`?
+
+  ```JavaScript
+  function getSamurai(samurai){
+    "use strict"
+
+    arguments[0] = "Ishida";
+    return samurai;
+  }
+
+  function getNinja(ninja){
+    arguments[0] = "Fuma";
+    return ninja;
+  }
+
+  var samurai = getSamurai("Toyotomi");   // Toyotomi
+  var ninja = getNinja("Yoshi");          // Fuma
+  ```
+
+3. When running the following code, which of the assertions wll pass?
+
+  ```JavaScript
+  function whoAmI1(){
+    "use strict"
+    return this;
+  }
+
+  function whoAmI2(){
+    return this;
+  }
+
+  assert(whoAmI1() === window, "Window?"); // fail: "use strict" makes this undefined
+  assert(whoAmI2() === window, "Window?"); // pass: nonstrict function targets global window object
+  ```
+
+4. When running the following code, which of the assertions will pass?
+
+  ```JavaScript
+  var ninja1 = {
+    whoAmI: function(){
+      return this;
+    }
+  };
+
+  var ninja2 = {
+    whoAmI: ninja1.whoAmI
+  };
+
+  var identify = ninja2.whoAmI;
+
+  assert(ninja1.whoAmI() === ninja1, "ninja1?");
+  assert(ninja2.whoAmI() === ninja1, " ninja1 again?");
+
+  assert(identify() === ninja1, "ninja1 again?");
+
+  assert(ninja1.whoAmI.call(ninja2) === ninja2, "ninja2 here?");
+  ```
+
+  - The first and last `assert` statements would pass; the second and third
+  `assert` statements would fail. The second statement fails because the `whoAmI`
+  method is being _invoked as a method_, which makes the _function context_
+  ninja2. The third statement fails because `identify()` is _invoked
+  as a function_, which makes the `this` property the global `window` object.
+
+5. When running the following code, which of the assertions will pass?
+
+  ```JavaScript
+  function Ninja(){
+    this.whoAmI = () => this;
+  }
+
+  var ninja1 = new Ninja();
+  var ninja2 = {
+    whoAmI: ninja1.whoAmI
+  };
+
+  // pass: whoAmI() is an arrow function defined within a constructor function,
+  // meaning that the function context will be the new object instantiated from
+  // the constructor function.
+  assert(ninja1.whoAmI() === ninja1, "ninja1 here?");
+  // fail: whoAmI() has a function context equivalent to the object within which
+  // it is defined, and in this case that would be 'ninja1'.
+  assert(ninja2.whoAmI() === ninja1, "ninja2 here?");
+  ```
+
+6. Which of the following assertions will pass?
+```JavaScript
+function Ninja(){
+  this.whoAmI = function(){
+    return this;
+  }.bind(this);
+}
+
+var ninja1 = new Ninja();
+var ninja2 = {
+  whoAmI: ninja1.whoAmI
+};
+
+// pass: ninja1.whoAmI() is permanently bound to ninja1
+assert(ninja1.whoAmI() === ninja1, "ninja1 here?");
+// fail: ninja1.whoAmI() is permanently bound to ninja1, and ninja2.whoAmI()
+// references ninja1.whoAmI(), meaning that it will still come back as ninja1.
+assert(ninja2.whoAmI() === ninja2, "ninja2 here?");
+```
