@@ -1,5 +1,7 @@
+# Files
 .DS_Store
-
-node_modules/
 angular2/**/*.js.map
 angular2/tutorial_tour_of_heroes/app/*.js
+
+# Directories
+node_modules/

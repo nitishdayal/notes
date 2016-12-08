@@ -8,16 +8,16 @@ Topics Covered:
 
 ## Do You Know? (Pre-Chapter Knowledge Check)
 
-1. Why is the `this` parameter known as the function _context_?
+1. Why is the `this` parameter known as the _function context_?
 
     - The `this` parameter is known as the _function context_ because it is used
       to refer to the object on which the function is being invoked upon; for example,
       if we call a method on an array (`array.push()`), the `this` parameter would
       refer to the array on which the `.push()` method was called upon. 
 
-2. What's the difference between a function and a method?
+2. What's the difference between a _function_ and a _method_?
 
-    - A function is a stand-alone object, whereas a method is a function which
+    - A _function_ is a stand-alone object, whereas a _method_ is a function which
       is _a property of an object_.
 
 3. What would happen if a constructor function explicitly returned an object?
@@ -189,7 +189,7 @@ The `whatsMyContext()` function simply returns its _function context_. If it is
   invoked from an _object property reference_, it is not _constructing_ a 
   new function, and we did not utilize `apply` or `call` to invoke the function.
 
-`ninja1` is variable that has been assigned an _object_ with a _property_, `getMyThis`,
+`ninja1` is a variable that has been assigned an _object_ with a _property_, `getMyThis`,
   _which references the_ `whatsMyContext` _function_. To call this function, we invoke
   the function using a _method reference_ (`ninja1.getMyThis()`) which makes the _function
   context_ the `ninja1` object.
@@ -201,7 +201,7 @@ The `whatsMyContext()` function simply returns its _function context_. If it is
 
 ### 4.2.3. Invocation As A Constructor
 
-_Constructor functions_ are declared exactly like any other function; we can construct
+**Constructor functions** are declared exactly like any other function; we can construct
   new objects using _function declarations and function expressions_. The difference
   lies in the process for _invoking the function_. To invoke a function as a 
   _constructor_, we simply precede the function invocation with the `new` keyword.
@@ -211,7 +211,7 @@ _Constructor functions_ are declared exactly like any other function; we can con
 > _Constructor functions_, the topic of this section, are functions used to create
 > and initialize object instances.
 
-A _constructor function_ creates an _empty object instance_ and passes it to the function
+A **constructor function** creates an _empty object instance_ and passes it to the function
   as its _function context_. The constructor then adds properties to the new object
   as defined in the _function body_. Finally, the _newly constructed object_ is the
   return value of the function invocation. **This is the primary purpose of a
@@ -225,7 +225,7 @@ Technically, we can _new_ up an instance of any function regardless of the funct
   the return value of the `new` expression. The newly created object passed as the
   _function context_ is discarded.
 
-Since _constructor functions_ have these special conditions to take into consideration,
+Since **constructor functions** have these special conditions to take into consideration,
   they are coded in a different manner than other functions.
 
 **Coding considerations for constructors**
@@ -234,28 +234,156 @@ Constructors _initialize a new object_ that is created by the _function invocati
   with a set of specified _initial conditions_. Constructor functions follow a
   naming convention to differentiate them from other functions or methods. While
   standard functions/methods are named along the lines of the action they perform,
-  _constructor functions_ are generally named as a _noun describing the object
+  **constructor functions** are generally named as a _noun describing the object
   which the function will be creating_ and is capitalized. They allow us to write
   more elegant code by providing the ability to create multiple objects that
   conform to a similar pattern without having to repeat code.
 
 ### 4.2.4. Invocation With `Call` and `Apply` Methods
 
+A key difference between the various types of _function invocation_ is how the object
+  of the _function context_ is defined. Invoking as a method targets the method's 
+  _owning object_; top-level functions target either the `window` object or
+  `undefined`, depending on the strictness of the function call; constructors
+  target their newly created _object instance_. If we want to _explicitly set
+  the function context_, we can utilize the built-in **function methods**
+  `apply` and `call`.
 
+As mentioned many times, functions are _first-class objects_ in JavaScript, and just
+  like any other object they can have properties and attributes. All JavaScript
+  functions have access to the `apply` and `call` methods, and they are invoked
+  in similar fashion. The `apply` method accepts two parameters: the object which
+  will be the target of the _function context_, and an **array of values** to be used
+  as the _invocation arguments_. The `call` method only differs in that, instead of
+  accepting the arguments in the form of an array, it simply treats all arguments
+  after the first as the _invocation arguments_.
+
+The `call` and `apply` methods can come in handy if we need to _override the function
+  context_ with a different object, a practice that is useful when invoking
+  _callback functions_.
+
+**Example:**
+```JavaScript
+/** Function accepts an array and a callback function 
+  * as arguments, iterates through the array, and invokes
+  * the callback function using the 'call' method, providing
+  * the current array item as the function context and the current
+  * index as an argument.
+  **/
+
+function callExample(list, callback) {
+  for (var n = 0; n < list.length; n++) {
+    callback.call(list[n], n);
+  }
+}
+```
+
+In the example above, the `call` method was used because we only expect to pass in
+  one argument to the callback function. `call` can also be utilized if we are passing
+  multiple _unrelated values_ as arguments; if the arguments are related (or are already
+  wrapped up in a nice little array) it would be more logical to implement the `apply`
+  method. Utilize whichever method seems more appropriate for any given situation. Logical
+  applications of the correct method will increase code clarity, which is always a 
+  good thing.
 
 ----------
 
 ## 4.3. Fixing The Problems of Function Contexts
 
+To put it quite frankly, keeping track of the _function context_ can be a pain in the ass.
+  We've explored some ways of managing or manipulating the _function context_ to our liking
+  by invoking functions via the `call` and/or `apply` **built-in methods** that all functions
+  have access to. In the following section we will cover two additional ways of handling
+  the _function context_ which, depending on the situation, can be cleaner and more
+  elegant.
 
 ### 4.3.1. Using Arrow Functions To Get Around Function Contexts
 
+Arrow functions have a unique feature which makes them quite attractive when dealing
+  with callbacks; arrow functions don't have their own `this` value. An **arrow function**
+  _inherits the 'this' parameter from the object in which they're defined_. For example,
+  if we were to write an arrow function _inside_ of a constructor function, the `this`
+  parameter would be bound to new objects created by calling the constructor function.
+  If we wrote one within the body of a standard function, the `this` property of the
+  arrow function would be the function within which it was defined.
+
+**CAVEAT: Arrow functions and object literals**
+
+If an object literal has a property which is an _arrow function_, and that object is
+  defined within the global namespace, the arrow function's `this` property will be
+  the `this` value of the global code (in a browser, it would be the `window` object).
+
 ### 4.3.2. Using The `bind` Method
 
+Yes, another **built-in method** available to all functions that exists to help us
+  manage _function context_! The `bind` method accepts one argument, the object
+  that we want to set as the _function context_, and returns a **new** function
+  that is _always_ bound to the provided object.
 
+Example:
+```HTML
+<button id="test">Click me!</button>
+<script>
+  var button = {
+    clicked: false,
+    click: function(){
+      this.clicked = true;
+    }
+  };
+  var elem = document.getElementById("test");
+  elem.addEventListener("click", button.click.bind(button));
+
+  var boundFunction = button.click.bind(button);
+  assert(boundFunction != button.click,
+          "Calling bind creates a completely new function!");
+</script>
+```
+
+In the example above, we create an _object literal_, `var button = {...}`, to manage
+  the state of the button. When the button is clicked, we want to set the _object
+  literal's_ `clicked` property to `true`. To accomplish this we _bind_ the `click`
+  method to the `button` object, **permanently** associating the `click` method's 
+  `this` property with the `button` object. If we simply placed `button.click`
+  as the event-handler, the _function context_ of the `click` method would be the
+  element to which the event handler is attached, meaning that it would equal
+  the HTML button element as opposed to our `button` object literal.
 
 ----------
 
 ## 4.4. Summary
 
+- When a function is invoked, it is passed two _implicit parameters_, `arguments`
+  and `this`:
 
+  - The `arguments` parameter maintains all of the arguments passed into the function.
+    It has a `length` property that returns the number or arguments provided upon
+    _invocation_, and gives us the ability to access arguments and argument values
+    that don't have matching parameters. The `arguments` parameter _aliases_ the
+    function parameters; changing the value of one will change the value of the other.
+    To avoid this we simply implement "strict mode".
+  - The `this` parameter represents the _function context_, an object which should be
+    associated with the _function invocation_. We can determine the value of `this`
+    based on the way a function is defined **as well as** how it's invoked.
+  
+- A function can be invoked in one of four ways: As a function, as a method,
+  as a constructor, or via the function's `apply` and `call` methods.
+
+- The way in which a function is invoked influences the value of the `this` parameter:
+
+  - Functions _invoked as functions_ set the value of `this` to either the global
+    `window` object, or if "strict mode" is enabled, `undefined`.
+  - Functions _invoked as methods_ set the `this` parameter as the _object on which the
+    function was invoked_.
+  - Functions _invoked as constructors_ set the value of `this` to the newly
+    constructed object.
+  - Functioned _invoked through `call` or `apply`_ set the value of `this` to be
+    the first argument provided in the _function invocation_.
+
+- **Arrow functions** don't have a `this` value of their own; they inherit the
+  value of `this` from the object in which they are defined.
+- The `bind` method is a **built-in method** available to all functions in JavaScript,
+  similar to `call` or `apply`, but the similarities end there. Where as `call`/`apply`
+  simply provide an argument to be used as the _function context_ during one particular
+  _function invocation_, the `bind` method _will create and return a new function with
+  the exact same body as the original function_, but with the `this` property
+  **permanently** set to an object provided as an argument.
