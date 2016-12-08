@@ -493,21 +493,22 @@ In the example above, we create an _object literal_, `var button = {...}`, to ma
   ```
 
 6. Which of the following assertions will pass?
-```JavaScript
-function Ninja(){
-  this.whoAmI = function(){
-    return this;
-  }.bind(this);
-}
 
-var ninja1 = new Ninja();
-var ninja2 = {
-  whoAmI: ninja1.whoAmI
-};
+  ```JavaScript
+  function Ninja(){
+    this.whoAmI = function(){
+      return this;
+    }.bind(this);
+  }
 
-// pass: ninja1.whoAmI() is permanently bound to ninja1
-assert(ninja1.whoAmI() === ninja1, "ninja1 here?");
-// fail: ninja1.whoAmI() is permanently bound to ninja1, and ninja2.whoAmI()
-// references ninja1.whoAmI(), meaning that it will still come back as ninja1.
-assert(ninja2.whoAmI() === ninja2, "ninja2 here?");
-```
+  var ninja1 = new Ninja();
+  var ninja2 = {
+    whoAmI: ninja1.whoAmI
+  };
+
+  // pass: ninja1.whoAmI() is permanently bound to ninja1
+  assert(ninja1.whoAmI() === ninja1, "ninja1 here?");
+  // fail: ninja1.whoAmI() is permanently bound to ninja1, and ninja2.whoAmI()
+  // references ninja1.whoAmI(), meaning that it will still come back as ninja1.
+  assert(ninja2.whoAmI() === ninja2, "ninja2 here?");
+  ```
