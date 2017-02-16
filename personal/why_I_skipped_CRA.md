@@ -10,7 +10,7 @@
   configuration? Eject and gain access to clean, structured, well-documented configurations that
   are as easy to reason about as possible. It's great. And it can be great for learning React
   as well, given _your personal style of learning_. It wasn't for me, and Dan was curious
-  about what issues I had with it. My response is more than 160chars so the conversation has moved
+  about what issues I had with it. My response is more than 140chars so the conversation has moved
   to Github. :)
 
 ---
